@@ -135,5 +135,52 @@ plt.show()
 
 ![image](https://user-images.githubusercontent.com/96527199/149110578-7730fd9e-2256-4527-a15f-88a28f787036.png)
 
+# 3.Write a program to contrast stretching of a low contrast image,Histogram and histogram equalization
+
+import cv2
+
+# import Numpy
+
+import numpy as np 
+
+from matplotlib import pyplot as plt 
+
+# reading an image using imreadmethod
+
+my_img = cv2.imread('btrfly.jpg', 0)
+
+equ = cv2.equalizeHist(my_img)
+
+# stacking both the images side-by-side orientation
+
+res = np.hstack((my_img, equ))
+
+# showing image input vs output
+
+cv2.imshow('image', res)
+
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+
+hist,bins = np.histogram(equ.flatten(),256,[0,256])
+
+cdf = hist.cumsum()
+
+cdf_normalized = cdf * float(hist.max()) / cdf.max()
+
+plt.plot(cdf_normalized, color = 'b')
+
+plt.hist(equ.flatten(),256,[0,256], color = 'r')
+
+plt.xlim([0,256])
+
+plt.legend(('cdf','histogram'), loc = 'upper left')
+
+plt.show()
+
+# OUTPUT:-
+
+![image](https://user-images.githubusercontent.com/96527199/149117143-fbac6cf5-561c-4c3d-a491-4d643ecf75b1.png)
 
 
