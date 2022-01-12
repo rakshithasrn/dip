@@ -183,4 +183,43 @@ plt.show()
 
 ![image](https://user-images.githubusercontent.com/96527199/149117143-fbac6cf5-561c-4c3d-a491-4d643ecf75b1.png)
 
+# write a program to implementation of transformation of an image
+
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+
+#translation
+img = cv.imread('btrfly.jpg',0)
+rows,cols = img.shape
+M = np.float32([[1,0,100],[0,1,50]])
+dst = cv.warpAffine(img,M,(cols,rows))
+cv.imshow('img',dst)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+#rotation
+img = cv.imread('btrfly.jpg',0)
+rows,cols = img.shape
+# cols-1 and rows-1 are the coordinate limits.
+M = cv.getRotationMatrix2D(((cols-1)/2.0,(rows-1)/2.0),90,1)
+dst = cv.warpAffine(img,M,(cols,rows))
+#cv.imshow('img',dst)
+plt.subplot(121),plt.imshow(img),plt.title('Input')
+plt.subplot(122),plt.imshow(dst),plt.title('Output')
+plt.show()
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+#scaling
+img=cv.imread('btrfly.jpg',cv.IMREAD_COLOR)
+resized=cv.resize(img,None,fx=1,fy=2,interpolation=cv.INTER_CUBIC)
+#cv.imshow("original pic",img)
+#cv.imshow("resized pic",resized)
+plt.subplot(121),plt.imshow(img),plt.title('Input')
+plt.subplot(122),plt.imshow(resized),plt.title('Output')
+plt.show()
+cv.waitKey()
+cv.destroyAllWindows()
+
 
