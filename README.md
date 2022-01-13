@@ -285,3 +285,26 @@ plt.show()
 ![image](https://user-images.githubusercontent.com/96527199/149121558-cb510cd6-23d5-40f6-ac8d-0a3be76414c4.png)
 
 ![image](https://user-images.githubusercontent.com/96527199/149121601-4db9c874-cafa-4f4d-93eb-be6ca0ce543e.png)
+
+# python program access image from directory
+
+# import the modules
+import os
+
+from os import listdir
+ 
+# get the path or directory
+
+folder_dir = "C:\img"
+
+for images in os.listdir(folder_dir):
+ 
+    # check if the image end swith png or jpg or jpeg
+    
+    if (images.endswith(".png") or images.endswith(".jpg")\
+    
+        or images.endswith(".jpeg")):
+        
+        # display
+        
+        print(images)
