@@ -380,4 +380,10 @@ new_im.save("merged_images.png", "PNG")
 
 new_im.show()
 
+# output:_
+
+img 1 size:  (259, 194)
+
+img 2 size:  (275, 183)
+
 
