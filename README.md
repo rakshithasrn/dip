@@ -308,3 +308,49 @@ for images in os.listdir(folder_dir):
         # display
         
         print(images)
+        
+        # OUTPUT:-
+        
+        d1.jpg
+        
+        d2.jpg
+       
+        d3.jpg
+        
+       # python program to find mean value of mage
+       
+       #MEAN VALUE OF AN IMAGE
+import cv2
+  
+# Save image in set directory
+
+# Read RGB image
+
+img = cv2.imread('d1.jpg') 
+
+ # getting mean value
+ 
+mean = img.mean()
+  
+# printing mean value
+
+print("Mean Value for 0 channel : " + str(mean))
+
+# Output img with window name as 'image'
+
+cv2.imshow('image', img) 
+  
+# Maintain output window utill
+
+# user presses a key
+
+cv2.waitKey(0)        
+  
+# Destroying present windows on screen
+
+cv2.destroyAllWindows() 
+
+# output:-
+
+Mean Value for 0 channel : 83.87289203784049
+
