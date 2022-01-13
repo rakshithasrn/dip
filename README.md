@@ -354,3 +354,30 @@ cv2.destroyAllWindows()
 
 Mean Value for 0 channel : 83.87289203784049
 
+# code to merge images
+
+from PIL import Image
+  
+img_01 = Image.open("d1.jpg")
+
+img_02 = Image.open("d2.jpg")
+
+img_01_size = img_01.size
+
+img_02_size = img_02.size
+
+print('img 1 size: ', img_01_size)
+
+print('img 2 size: ', img_02_size)
+
+new_im = Image.new('RGB', (2*img_01_size[0],2*img_01_size[1]), (250,250,250))
+  
+new_im.paste(img_01, (0,0))
+
+new_im.paste(img_02, (img_01_size[0],0))
+
+new_im.save("merged_images.png", "PNG")
+
+new_im.show()
+
+
