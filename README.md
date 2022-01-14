@@ -326,19 +326,29 @@ import cv2
 
 #Read RGB image
 
-img = cv2.imread('d1.jpg') 
+img1 = cv2.imread('d1.jpg') 
 
  #getting mean value
  
-mean = img.mean()
+mean = img1.mean()
   
 #printing mean value
 
 print("Mean Value for 0 channel : " + str(mean))
 
+img2 = cv2.imread('d2.jpg') 
+
+ #getting mean value
+ 
+mean = img2.mean()
+
+print("Mean Value for 1 channel : " + str(mean))
+  
 #Output img with window name as 'image'
 
-cv2.imshow('image', img) 
+cv2.imshow('image', img1) 
+
+cv2.imshow('image', img2) 
   
 #Maintain output window utill
 
@@ -352,7 +362,12 @@ cv2.destroyAllWindows()
 
 # output:-
 
+![image](https://user-images.githubusercontent.com/96527199/149465035-a627e978-bffb-42a4-98d3-d6e1cf1bd3c5.png)
+
 Mean Value for 0 channel : 83.87289203784049
+
+Mean Value for 1 channel : 121.76274879947012
+
 
 # code to merge images
 
