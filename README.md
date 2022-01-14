@@ -380,7 +380,10 @@ new_im.save("merged_images.png", "PNG")
 
 new_im.show()
 
-# output:_
+# output:-
+
+![image](https://user-images.githubusercontent.com/96527199/149464321-6a8cfb47-1ff1-433b-98c0-c3d0fb6a80a4.png)
+
 
 img 1 size:  (259, 194)
 
