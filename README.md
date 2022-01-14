@@ -462,3 +462,31 @@ cv2.destroyAllWindows()
 ![image](https://user-images.githubusercontent.com/96527199/149463978-3185605a-bf3b-4334-940e-1cbeaf313aac.png)
 
 27.0 1.5707964
+
+# Python program to find total number of circles
+
+import cv2
+
+import numpy as np
+
+img = cv2.imread('circle.jpg')
+
+mask = cv2.threshold(img[:, :, 0], 255, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+
+stats = cv2.connectedComponentsWithStats(mask, 8)[2]
+
+label_area = stats[1:, cv2.CC_STAT_AREA]
+
+min_area, max_area = 50, 350  # min/max for a single circle
+
+singular_mask = (min_area < label_area) & (label_area <= max_area)
+
+circle_area = np.mean(label_area[singular_mask])
+
+n_circles = int(np.sum(np.round(label_area / circle_area)))
+
+print('Total circles:', n_circles)
+
+# OUTPUT:-
+
+Total circles: 125
