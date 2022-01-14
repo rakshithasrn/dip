@@ -438,3 +438,9 @@ cv2.imshow("Line Detection", img)
 cv2.waitKey(0)
 
 cv2.destroyAllWindows()
+
+# OUTPUT:-
+
+![image](https://user-images.githubusercontent.com/96527199/149463978-3185605a-bf3b-4334-940e-1cbeaf313aac.png)
+
+
