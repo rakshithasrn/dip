@@ -399,15 +399,15 @@ img = cv2.imread('sudoku.jpg')
 
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-# Apply Canny edge detection, return will be a binary image
+#Apply Canny edge detection, return will be a binary image
 
 edges = cv2.Canny(gray,50,100,apertureSize = 3)
 
-# Apply Hough Line Transform, minimum lenght of line is 200 pixels
+#Apply Hough Line Transform, minimum lenght of line is 200 pixels
 
 lines = cv2.HoughLines(edges,1,np.pi/180,200)
 
-# Print and draw line on the original image
+#Print and draw line on the original image
 
 for rho,theta in lines[0]:
 
