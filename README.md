@@ -539,3 +539,32 @@ plt.show()
 # OUTPUT:-
 
 ![image](https://user-images.githubusercontent.com/96527199/156335486-aed0b706-07e5-4906-9763-0c000ea8fb2c.png)
+
+# 7.Canny edge detection
+
+import numpy as np
+
+import cv2 as cv
+
+from matplotlib import pyplot as plt
+
+img = cv.imread('panda.jpg',0)
+
+edges = cv.Canny(img,100,200)
+
+plt.subplot(121),plt.imshow(img,cmap = 'gray')
+
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+
+plt.subplot(122),plt.imshow(edges,cmap = 'gray')
+
+plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+
+# OUTPUT:-
+
+![image](https://user-images.githubusercontent.com/96527199/156338980-b8d3dd80-762f-44e8-badc-900b826571c5.png) 
+
+
+
