@@ -491,3 +491,51 @@ print('Total circles:', n_circles)
 
 Total circles: 125
 
+# 5.Active contour n an image
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+
+from skimage.color import rgb2gray
+
+from skimage import data
+
+from skimage.filters import gaussian
+
+from skimage.segmentation import active_contour
+
+image =  data.astronaut()
+
+image = rgb2gray(image)
+
+s = np.linspace(0, 2*np.pi, 400)
+
+r = 100 + 100*np.sin(s)
+
+c = 220 + 100*np.cos(s)
+
+init = np.array([r, c]).T
+
+snake = active_contour(gaussian(image, 3, preserve_range=False),
+
+init, alpha=0.015, beta=10, gamma=0.001)
+
+fig, ax = plt.subplots(figsize=(7, 7))
+
+ax.imshow(image, cmap=plt.cm.gray)
+
+ax.plot(init[:, 1], init[:, 0], '--r', lw=3)
+
+ax.plot(snake[:, 1], snake[:, 0], '-b', lw=3)
+
+ax.set_xticks([]), ax.set_yticks([])
+
+ax.axis([0, image.shape[1], image.shape[0], 0])
+
+plt.show()
+
+# OUTPUT:-
+
+![image](https://user-images.githubusercontent.com/96527199/156335486-aed0b706-07e5-4906-9763-0c000ea8fb2c.png)
